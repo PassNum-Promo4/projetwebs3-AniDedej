@@ -1,0 +1,20 @@
+<div *ngIf="userService.selectedUser">
+  <div *ngIf="userService.selectedUser" class="container p-5">
+    <div class="card p-3">
+      <div class="p-2 row align-items-center">
+        <div class="col-3 d-flex flex-column align-items-center" *ngIf="!editable">
+          <img *ngIf="userService.selectedUser.thumbnail" [src]="userService.BASE_URL + 'users/images/' + userService.selectedUser.thumbnail || 'assets/img/avatar.png'"
+               class="thumbnail img-thumbnail rounded-circle" alt="User Thumbnail">
+          <h3 class="p-2">{{ userService.selectedUser.username }}</h3>
+        </div>
+        <div class="col-9 row">
+          <div class="col-9 d-flex flex-column align-items-center">
+            <p class="info-details">First Name: <span class="details">{{ userService.selectedUser.firstName }}</span></p>
+            <p class="info-details">Last Name: <span class="details">{{ userService.selectedUser.lastName }}</span></p>
+            <p class="info-details">Email: <span class="details">{{ userService.selectedUser.email }}</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

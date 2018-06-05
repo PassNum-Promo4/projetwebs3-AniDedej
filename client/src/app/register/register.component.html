@@ -1,0 +1,60 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="form" (ngSubmit)="createUser()">
+      <div class="row">
+        <div class="form-group col-6">
+          <div class="md-form form-sm">
+            <input type="text" formControlName="firstName" id="firstName" class="form-control" [ngClass]="{ 'is-invalid': isValid('firstName') }">
+            <label for="firstName">Enter First Name</label>
+            <small *ngIf="isValid('firstName')" class="form-text text-danger">First name cannot be empty !</small>
+          </div>
+        </div>
+        <div class="form-group col-6">
+          <div class="md-form form-sm">
+            <input type="text" formControlName="lastName" id="lastName" class="form-control" [ngClass]="{ 'is-invalid': isValid('lastName') }">
+            <label for="lastName">Enter Last Name</label>
+            <small *ngIf="isValid('lastName')" class="form-text text-danger">Last name cannot be empty !</small>
+          </div>
+        </div>
+      </div>
+      <div class="md-form form-sm">
+        <i class="fa fa-user prefix"></i>
+        <input type="text" formControlName="username" id="username" class="form-control" [ngClass]="{ 'is-invalid': isValid('username') }">
+        <label for="username">Enter Username</label>
+        <small *ngIf="isValid('username')" class="form-text text-danger">Username cannot be empty !</small>
+      </div>
+      <div class="md-form form-sm">
+        <i class="fa fa-envelope prefix"></i>
+        <input type="email" formControlName="email" id="email" class="form-control" [ngClass]="{ 'is-invalid': isValid('email') || (auth.res && auth.res.data) }" aria-describedby="emailHelp">
+        <label for="email">Enter Email</label>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <small *ngIf="isValid('email')" class="form-text text-danger">Email cannot be empty !</small>
+        <span *ngIf="auth.res">
+            <small *ngIf="auth.res.data" class="form-text text-danger">{{ auth.res.data + " " + auth.res.message }}</small>
+          </span>
+      </div>
+      <div class="row">
+        <div class="form-group col-6">
+          <div class="md-form form-sm">
+            <i class="fa fa-lock prefix"></i>
+            <input type="password" formControlName="password" id="password" class="form-control" [ngClass]="{ 'is-invalid': isValid('password') }">
+            <label for="password">Password</label>
+            <small *ngIf="isValid('password')" class="form-text text-danger">Password cannot be empty !</small>
+          </div>
+        </div>
+        <div class="form-group col-6">
+          <div class="md-form form-sm">
+            <i class="fa fa-lock prefix"></i>
+            <input type="password" formControlName="confirmPassword" id="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': isValid('confirmPassword') }">
+            <label for="confirmPassword">Confirm Password</label>
+            <small *ngIf="isValid('confirmPassword')" class="form-text text-danger">Confirm Password cannot be empty !</small>
+            <small *ngIf="form.errors?.mismatchedFields" class="form-text text-danger">Passwords do not match !</small>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button id="registerBtn" type="submit" class="btn btn-primary">Register !</button>
+      </div>
+    </form>
+  </div>
+</div>

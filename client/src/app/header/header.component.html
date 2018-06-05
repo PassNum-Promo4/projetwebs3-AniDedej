@@ -1,0 +1,65 @@
+<header>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar">
+    <div class="container">
+      <a *ngIf="!auth.isAuthenticated" class="navbar-brand" routerLink="">My App</a>
+      <a *ngIf="auth.isAuthenticated" class="navbar-brand" [routerLink]="['user', auth.username, 'home']">My App</a>
+      <form *ngIf="auth.isAuthenticated" class="form-inline mt-2 mt-md-0 flex-md-nowrap col-5 align-items-center">
+        <div class="md-form form-sm w-100 m-0">
+          <input class="form-control form-control-sm validate w-100 m-0" autocomplete="off" [(ngModel)]="searchData.value" (keyup)="updateResults()" name="search" id="search" aria-label="Search" type="text">
+          <label for="search" class="text-white">Search</label>
+          <div *ngIf="resultData">
+            <ul class="nav dropdown-menu w-100" *ngIf="resultData.length">
+              <li class="dropdown-item" [routerLink]="['user', auth.username, 'peoples', result.username]" (click)="openDetails(result)" *ngFor="let result of resultData">
+                <div class="d-flex align-items-center">
+                  <div class="w-100">
+                    <img class="user-thumbnail img-thumbnail rounded-circle" [src]="userService.BASE_URL + 'users/images/' + result.thumbnail" alt="">
+                    {{ result.username }}
+                  </div>
+                  <span>{{ result.firstName}} {{ result.lastName }}</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </form>
+      <button *ngIf="auth.isAuthenticated" class="navbar-toggler" type="button" data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+        class="navbar-toggler-icon"></span>
+      </button>
+      <button *ngIf="!auth.isAuthenticated" class="navbar-toggler" type="button" data-toggle="collapse"
+              data-target="#navbarAuthContent"
+              aria-controls="navbarAuthContent" aria-expanded="false" aria-label="Toggle navigation"><span
+        class="navbar-toggler-icon"></span>
+      </button>
+      <div *ngIf="auth.isAuthenticated" class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav col-6 justify-content-end">
+          <li class="nav-item" [routerLinkActive]="['active']">
+            <a class="nav-link" [routerLink]="['user', auth.username, 'messages']">Messages</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['active']">
+            <a class="nav-link" [routerLink]="['user', auth.username, 'peoples']">Peoples</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['active']">
+            <a class="nav-link" [routerLink]="['user', auth.username, 'events']">My Posts</a>
+          </li>
+        </ul>
+        <ul *ngIf="auth.isAuthenticated" class="navbar-nav col-6 justify-content-end">
+          <li *ngIf="auth.username" class="nav-item nav-username" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">
+            <a class="nav-link" [routerLink]="['user', auth.username]">Welcome {{ auth.username | uppercase }}</a>
+          </li>
+          <li class="nav-item">
+            <div (click)="userService.logout(user)">
+              <a class="nav-link" routerLink="">
+                <span class="fas fa-sign-out-alt"></span> Logout
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+</header>

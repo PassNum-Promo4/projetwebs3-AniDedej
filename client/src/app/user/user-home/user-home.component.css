@@ -1,0 +1,6 @@
+.btn:focus {
+  background-color: transparent;
+}
+.btn:active {
+  background-color: #dd322e;
+}

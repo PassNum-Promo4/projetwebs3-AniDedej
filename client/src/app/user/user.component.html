@@ -1,0 +1,73 @@
+<div *ngIf="user">
+  <div *ngIf="user || userService.userThumbnail" class="container p-5">
+    <div class="card p-3">
+      <div class="p-2 row align-items-center">
+        <div class="col-3 d-flex flex-column align-items-center" *ngIf="!editable">
+          <img *ngIf="user.thumbnail" [src]="userService.BASE_URL + 'users/images/' + user.thumbnail || 'assets/img/avatar.png'"
+               class="thumbnail img-thumbnail rounded-circle" alt="User Thumbnail">
+          <app-file-upload *ngIf="!user.thumbnail"></app-file-upload>
+          <h3 class="p-2">{{ user.username }}</h3>
+        </div>
+        <div class="col-9 row" *ngIf="!editable">
+          <div class="col-9 d-flex flex-column align-items-center">
+            <p class="info-details">First Name: <span class="details">{{ user.firstName }}</span></p>
+            <p class="info-details">Last Name: <span class="details">{{ user.lastName }}</span></p>
+            <p class="info-details">Email: <span class="details">{{ user.email }}</span></p>
+          </div>
+          <div class="col-3" (click)="edit()">
+            <i class="fa fa-pencil-alt edit"></i>
+          </div>
+        </div>
+      </div>
+      <div class="container" *ngIf="editable">
+        <div class="row">
+          <div class="col-6 md-form form-sm">
+            <input type="text" [(ngModel)]="user.firstName" id="firstName" class="form-control">
+            <label for="firstName">First Name</label>
+          </div>
+          <div class="col-6 md-form form-sm">
+            <input type="text" [(ngModel)]="user.lastName" id="lastName" class="form-control">
+            <label for="lastName">Last Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6 md-form form-sm">
+            <input type="text" [(ngModel)]="user.username" id="username" class="form-control">
+            <label for="username">Username</label>
+            <small id="emailHelp" class="form-text text-muted">If you change your username you will be logged out.</small>
+            <span *ngIf="userService.messages">
+            <small *ngIf="userService.messages.dataType == 'Username'" class="form-text text-danger">{{ userService.messages.data }} {{ userService.messages.message }}</small>
+          </span>
+          </div>
+          <div class="col-6 md-form form-sm">
+            <input type="email" [(ngModel)]="user.email" id="email" class="form-control">
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6 md-form form-sm">
+            <input type="password" [(ngModel)]="userData.currPassword" id="currPassword" class="form-control">
+            <label for="currPassword">Enter Current Password</label>
+            <span *ngIf="userService.messages">
+              <small *ngIf="userService.messages.dataType == 'Password'" class="form-text text-danger">{{ userService.messages.message }}</small>
+            </span>
+          </div>
+          <div class="col-6 md-form form-sm">
+            <input type="password" [(ngModel)]="userData.newPassword" id="newPassword" class="form-control">
+            <label for="newPassword">Enter New Password</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-9">
+            <button type="submit" (click)="post()" class="btn btn-primary">Save Changes</button>
+            <button type="submit" (click)="cancelEdit()" class="btn btn-light">Cancel Changes</button>
+          </div>
+          <div class="col-3">
+            <button class="btn btn-danger" (click)="deleteUser(user)">Delete Account</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

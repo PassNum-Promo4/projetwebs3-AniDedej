@@ -1,0 +1,5 @@
+<div class="form-group">
+  <label for="file">Choose an image</label>
+  <input class="d-none" type="file" id="file" name="fileKey" (change)="handleFileInput($event.target.files)">
+  <button (click)="sendImage()">Set Image</button>
+</div>

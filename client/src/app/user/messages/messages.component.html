@@ -1,0 +1,11 @@
+<div class="container p-5">
+  <div class="jumbotron">
+    <h1 class="display-4">We're sorry, {{ auth.username }}!</h1>
+    <p class="lead">The message functionality is not yet implemented.</p>
+    <hr class="my-4">
+    <p>We'll notify you as soon as it's ready.</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" [routerLink]="['user', auth.username, 'home']" role="button">Go back to home!</a>
+    </p>
+  </div>
+</div>

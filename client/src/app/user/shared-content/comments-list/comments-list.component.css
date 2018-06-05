@@ -1,0 +1,48 @@
+.commentsBtn {
+  font-style: italic;
+}
+
+.commentsBtn:hover {
+  color: #008F8A !important;
+}
+
+.positionPopup {
+  -webkit-transform: translate3d(0, 20px, 0) !important;
+  -moz-transform: translate3d(0, 20px, 0) !important;
+  -ms-transform: translate3d(0, 20px, 0) !important;
+  -o-transform: translate3d(0, 20px, 0) !important;
+  transform: translate3d(0, 20px, 0) !important;
+}
+
+.listIcon {
+  font-size: 1.1rem;
+  color: #939393;
+}
+
+.listIcon:hover {
+  color: #6e6e6e;
+  cursor: pointer;
+}
+
+.listIcon:active {
+  color: #404040;
+}
+
+.username {
+  color: #0B2F79;
+  font-weight: bold;
+}
+
+.comment {
+  font-style: italic;
+}
+
+.content-time {
+  color: #6e6e6e;
+  font-style: italic;
+}
+
+.content-date {
+  color: #6e6e6e;
+  font-style: italic;
+}

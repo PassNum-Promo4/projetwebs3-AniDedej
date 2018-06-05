@@ -1,0 +1,23 @@
+.thumbnail {
+  width: 75px;
+  height: 75px;
+}
+
+.online-color {
+  color: #00c0b9;
+}
+
+.offline-color {
+  color: #7d7d7d;
+}
+
+.info-details {
+  color: #6e6e6e;
+  font-style: italic;
+}
+
+.details {
+  color: #1C2331;
+  font-weight: bold;
+  font-style: normal;
+}

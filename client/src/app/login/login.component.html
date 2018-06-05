@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header">
+    <img id="profile-img" class="profile-img-card" src="/assets/img/avatar.png"/>
+    <p id="profile-name" class="profile-name-card"></p>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="form" novalidate>
+      <div class="md-form form-sm mb-5">
+        <i class="fa fa-user prefix"></i>
+        <input type="text" [(ngModel)]="loginData.userNameOrEmail" formControlName="userNameOrEmail" id="signUsername"
+               [ngClass]="{ 'is-invalid': isValid('userNameOrEmail') || (auth.res && auth.res.userNoSuccess) }"
+               class="form-control form-control-sm validate">
+        <label for="signUsername">Your Username Or Email</label>
+        <small *ngIf="isValid('userNameOrEmail')" class="form-text text-danger">Username cannot be empty !</small>
+        <span *ngIf="auth.res">
+            <small *ngIf="auth.res.userNoSuccess && !isValid('userNameOrEmail')" class="form-text text-danger">{{ auth.res.message }}</small>
+          </span>
+      </div>
+      <div class="md-form form-sm mb-5">
+        <i class="fa fa-lock prefix"></i>
+        <input type="password" [(ngModel)]="loginData.password" formControlName="password" id="signPassword"
+               [ngClass]="{ 'is-invalid': isValid('password') || (auth.res && auth.res.passNoSuccess) }"
+               class="form-control form-control-sm validate" required>
+        <label for="signPassword">Your Password</label>
+        <small *ngIf="isValid('password')" class="form-text text-danger">Password cannot be empty !</small>
+        <span *ngIf="auth.res">
+            <small *ngIf="auth.res.passNoSuccess" class="form-text text-danger">{{ auth.res.message }}</small>
+          </span>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-indigo waves-effect waves-light" (click)="login()" type="submit">Log in</button>
+      </div>
+    </form>
+  </div>
+</div>

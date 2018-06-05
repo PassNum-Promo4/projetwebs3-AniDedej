@@ -1,0 +1,52 @@
+<div class="full-page-intro" style="background: url('assets/img/bg.jpg') no-repeat;background-size: cover;">
+
+  <!-- Mask & flexbox options-->
+  <div class="mask rgba-black-light d-flex justify-content-center align-items-center p-4">
+    <!--Grid row-->
+    <div class="container p-5">
+      <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-6 col-xl-6 mt-5 white-text text-center text-md-left">
+
+          <h1 class="display-4 font-weight-bold">Music App</h1>
+
+          <hr class="hr-light">
+
+          <p>
+            <strong>Best & free app for musiciens</strong>
+          </p>
+
+          <p class="mb-4 d-none d-md-block">
+            <strong>Register now to create your network for collaborating with others musiciens and to have some fun doing it !</strong>
+          </p>
+
+          <a id="registerButton" class="btn btn-indigo btn-lg">Register NOW!
+            <i class="fa fa-graduation-cap ml-2"></i>
+          </a>
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6 col-xl-6 mt-5 pb-3">
+          <ul class="nav nav-tabs tabs-2" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#login" id="loginTab" role="tab"><i class="fas fa-sign-in-alt mr-1"></i> Log in</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#register" id="registerTab" role="tab"><i class="fa fa-user-plus mr-1"></i> Register</a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <app-login class="tab-pane fade in show active" id="login" role="tabpanel"></app-login>
+            <app-register class="tab-pane fade" id="register" role="tabpanel"></app-register>
+          </div>
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+    </div>
+  </div>
+</div>

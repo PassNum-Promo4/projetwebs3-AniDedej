@@ -1,0 +1,31 @@
+<div class="row align-items-center p-2">
+  <!-- Button trigger modal -->
+  <div class="customCommentContainer">
+    <button class="btn btn-sm btn-primary" (click)="openComment()">
+      Say Something !
+    </button>
+    <div *ngIf='isClicked' class="customPopover popover-container customPopoverTop fade show">
+      <div class="customArrow customPopoverArrow"></div>
+      <h3 class="customPopover-header"></h3>
+      <div class="customPopover-body">
+        <div class='md-form form-sm'>
+          <textarea class="form-control" [(ngModel)]="comments.content"
+                    autofocus spellcheck="true"
+                    placeholder="Say something..."
+                    id="" cols="10" rows="2">
+
+          </textarea>
+          <button class="btn btn-sm btn-info" (click)="addComment()" id="commentNowBtn">Comment</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--
+<div *ngIf="isClicked" class="md-form form-sm">
+  <textarea class="form-control" [(ngModel)]="comments.content" placeholder="Say something..." name="" id="" cols="10" rows="2"></textarea>
+  <button class="btn btn-sm btn-info" (click)="addComment()" data-dismiss="modal">Comment</button>
+</div>
+-->

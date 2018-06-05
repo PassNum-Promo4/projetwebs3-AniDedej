@@ -1,0 +1,42 @@
+<div *ngIf="content.comments">
+  <a class="commentsBtn" (click)="openComments()">
+    Comments
+  </a>
+  <span class="badge badge-primary">{{ content.comments.length }}</span>
+  <div class="" *ngIf="isClicked">
+    <div *ngIf="content.comments.length === 0">
+      <small class="text-white">Nobody Commented ?!  Be the first to say something. :)</small>
+    </div>
+    <div class="container p-2 pt-3 border-top">
+      <div class="row m-1 align-items-center" *ngFor="let comment of content.comments">
+        <div class="col-8 d-flex p-2">
+          <p class="m-0 username">{{ comment.username | uppercase }} </p>
+          <div class="ml-2 mr-2 bg-light rounded d-flex align-items-center">
+            <p class="ml-2 mr-2 mt-0 mb-0 pl-2 pr-2 comment" *ngIf="!selectedEditContent || (selectedEditContent !== comment && isEditMode) || !isEditMode">
+              {{ comment.content }}
+            </p>
+            <div *ngIf="selectedEditContent === comment && isEditMode" class="d-flex md-form m-0">
+              <textarea class="form-control" name="" [(ngModel)]="selectedEditContent.content" value="{{ selectedEditContent.content }}"></textarea>
+              <div class="pl-2">
+                <button class="btn btn-sm btn-outline-blue" [disabled]="!selectedEditContent.content" (click)="saveEditPost(selectedEditContent)">Save</button>
+              </div>
+            </div>
+            <div class="d-flex ml-2 mr-2">
+              <div class="pr-2 pl-2">
+                <small class="content-time">{{ comment.date | date: 'HH:mm,'}}</small>
+                <small class="content-date">{{ comment.date | date: 'dd/MM/yyyy'}}</small>
+              </div>
+              <div *ngIf="comment.username === auth.username" class="btn-group">
+                <i class="fa fa-ellipsis-h fa-1x listIcon dropdown-toggle h-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                <div class="dropdown-menu positionPopup">
+                  <a class="dropdown-item" (click)="openEdit(comment)">Edit</a>
+                  <a class="dropdown-item" (click)="sharedService.removeComment(comment, content['_id'])">Delete</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

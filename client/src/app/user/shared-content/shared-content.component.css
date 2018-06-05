@@ -1,0 +1,57 @@
+.actionContainer {
+  background-color: #DBDBDB;
+}
+
+textarea {
+  resize: none !important;
+}
+
+.bg {
+  background-color: #cecece;
+  border-radius: 45%;
+}
+
+.content-info {
+  font-size: .7rem;
+  font-style: italic;
+  color: #6e6e6e;
+}
+
+.content-time {
+  font-size: .7rem;
+  font-style: italic;
+  color: #6e6e6e;
+}
+
+.content-date {
+  font-size: .7rem;
+  font-style: italic;
+  color: #6e6e6e;
+}
+
+.listIcon {
+  font-size: 1.3rem;
+  color: #939393;
+}
+
+.listIcon:hover {
+  color: #6e6e6e;
+  cursor: pointer;
+}
+
+.listIcon:active {
+  color: #404040;
+}
+
+.positionPopup {
+  -webkit-transform: translate3d(0, 20px, 0) !important;
+  -moz-transform: translate3d(0, 20px, 0) !important;
+  -ms-transform: translate3d(0, 20px, 0) !important;
+  -o-transform: translate3d(0, 20px, 0) !important;
+  transform: translate3d(0, 20px, 0) !important;
+}
+
+.shared-thumbnail {
+  width: 92px;
+  height: 92px;
+}

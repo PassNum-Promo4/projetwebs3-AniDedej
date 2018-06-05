@@ -1,0 +1,28 @@
+.thumbnail {
+  width: 150px;
+  height: 150px;
+}
+
+.info-details {
+  color: #6e6e6e;
+  font-style: italic;
+}
+
+.details {
+  color: #1C2331;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.md-form label {
+  left: inherit;
+}
+
+.edit {
+  color: #7d7d7d;
+  cursor: pointer;
+}
+
+.edit:hover {
+  color: #1C2331;
+}

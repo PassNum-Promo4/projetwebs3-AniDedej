@@ -1,0 +1,25 @@
+<div class="container p-5">
+  <div *ngIf="users.length === 0">
+    <p>There are no new users for you...</p>
+  </div>
+  <div class="row" *ngIf="users">
+    <div class="mb-5 col-md-6" *ngFor="let user of users">
+      <div class="card container">
+        <div class="card-header row">
+          <div class="col-11 row align-items-center">
+            <img [src]="userService.BASE_URL + 'users/images/' + user.thumbnail || 'assets/img/avatar.png'"
+                 class="thumbnail img-thumbnail rounded-circle m-3" alt="User Thumbnail">
+            <h4 class="p-3 m-0">{{ user.username | uppercase }}</h4>
+          </div>
+          <small class="online-color" *ngIf="user.isOnline"> ONLINE </small>
+          <small class="offline-color" *ngIf="!user.isOnline"> OFFLINE </small>
+        </div>
+        <div class="card-body">
+          <p class="info-details">First Name: <span class="details">{{ user.firstName }}</span></p>
+          <p class="info-details">Last Name: <span class="details">{{ user.lastName }}</span></p>
+          <p class="info-details">Email: <span class="details">{{ user.email }}</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+.content {
+  max-width: 960px;
+}
+
+.infoContainer label {
+  /* background-color: #b3b3b3;*/
+  font-style: italic;
+  font-size: 0.8rem;
+  color: #616161;
+}
+
+.infoContainer label:hover {
+  font-style: italic;
+  font-size: 0.8rem;
+  color: #616161;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.infoContainer label, .infoContainer p {
+  margin: 0;
+}
+
+.infoContainer p {
+  background-color: #7d7d7d;
+  color: #ffffff;
+  font-style: italic;
+}
+
+.infoContainer svg {
+  color: #7d7d7d;
+  font-size: 1.7rem;
+}
+
+.infoContainer svg:hover {
+  color: #9a9a9a;
+  cursor: pointer;
+}
